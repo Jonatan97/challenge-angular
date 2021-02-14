@@ -15,12 +15,12 @@
               <mat-hint align="end">{{topTitle.value.length}} / 50</mat-hint>
 
             </mat-form-field>
-            <div >
+            <div class="variable-day">
                 <div fxFlex="50" fxLayoutAlign="end center" style="padding-right: 10px;">
                     <h2>Variable day</h2>
                 </div>
                 <div fxFlex="50">
-                    <mat-form-field appearance="outline">
+                    <mat-form-field appearance="outline" fxFlex="100">
                         <mat-label>Chosen day</mat-label>
                         <input matInput [matDatepicker]="picker" formControlName="day_time">
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
