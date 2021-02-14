@@ -58,14 +58,14 @@
                         <div fxFlex="15" fxLayoutAlign="center center" *ngIf="task['status']=='true'">
                             <mat-icon style="color: #54E10E;">check_circle</mat-icon>
                         </div>
-                        <div fxFlex="45"  fxLayoutAlign="start center" class="letter">
-                            <h4 >{{task['title'].substr(0,40)}}</h4>
+                        <div fxFlex="45"  fxLayoutAlign="start center">
+                            <h4  class="letter">{{task['title'].substr(0,40)}}</h4>
                         </div>
                         <div fxFlex="40" fxLayoutAlign="start center">
                             <h4 >{{task['day_time'] | date: 'mediumDate'}}</h4>
                         </div>
-                        <div fxFlex="50" fxLayoutAlign="start center" class="letter" fxFlex.xs="0" fxHide.xs>
-                            <h4>{{task['description'].substr(0,40) }}</h4>
+                        <div fxFlex="50" fxLayoutAlign="start center"  fxFlex.xs="0" fxHide.xs>
+                            <h4  class="letter">{{task['description'].substr(0,40) }}</h4>
                         </div>
                     </div>
                 </div>
@@ -78,13 +78,13 @@
                             <mat-icon style="color: #54E10E;">check_circle</mat-icon>
                         </div>
                         <div fxFlex="45"  fxLayoutAlign="start center">
-                            <h4 >{{task['title']}}</h4>
+                            <h4  class="letter">{{task['title'].substr(0,40)}}</h4>
                         </div>
                         <div fxFlex="40" fxLayoutAlign="start center">
                             <h4 >{{task['day_time'] | date: 'mediumDate'}}</h4>
                         </div>
                         <div fxFlex="50" fxLayoutAlign="start center" fxFlex.xs="0" fxHide.xs>
-                            <h4>{{task['description'] }}</h4>
+                            <h4 class="letter">{{task['description'].substr(0,40) }}</h4>
                         </div>
                     </div>
                 </div>
@@ -133,10 +133,9 @@
             </h4>
         </div>
         <div class="container-description">
-            <h4>
+            <h4 >
             {{taskSelect['description']}}
-
-        </h4>
+            </h4>
         </div>
         
     </div>

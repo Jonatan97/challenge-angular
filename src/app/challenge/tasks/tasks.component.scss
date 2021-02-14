@@ -57,6 +57,7 @@ hr{
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    width: 230px;
 }
 .container-description{
     max-height: 100px;
@@ -101,7 +102,10 @@ hr{
 
 // /* xxs - Extra Small Devices (Landscape phones & Portrait Tablets) */ 
 @media (max-width: 375px){
-
+    .letter{
+        
+        width: 160px;
+    }
 }
 
 @media (max-width: 320px){
