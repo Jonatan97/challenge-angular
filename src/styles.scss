@@ -1,1 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { 
+      margin: 0; 
+
+     }
+
+     h1,h2, h3, h4, h5, p, a, span{
+        padding: 0 !important;
+        margin: 0 !important;
+        margin-block-start: 0 !important;
+        margin-block-end: 0 !important;
+        line-height: 1.2 !important;
+      }
+/*material styles*/
+
+.mat-form-field-appearance-outline .mat-form-field-wrapper {
+      margin:  0em !important;
+      padding-bottom: 0em  !important;
+  }
+
+  /*here material*/
+
+
+  .title{
+      font-weight: 600;
+  }
+  .sub-title{
+      font-weight: 500;
+  
+  }
+  h2,h4{
+      margin-block-start: 0em;
+      margin-block-end: 0em;
+  }
+  .pointer{
+
+    transition:0.5s;
+  }
+  .pointer:hover{
+    cursor:pointer;
+  
+    transition:0.5s;
+  }

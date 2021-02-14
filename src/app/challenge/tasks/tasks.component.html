@@ -1,0 +1,161 @@
+<mat-drawer-container [hasBackdrop]="false">
+    
+<mat-drawer-content  class="container" >
+    <div fxFlex="5"  fxFlex.xs="1">
+
+    </div>
+    <div fxLayout="column" fxFlex="90" fxFlex.xs="98">
+        <div class="sub-container">
+            
+        </div>
+        <div style="padding-bottom: 20px;">
+            <h1 style="font-weight: bold;">My Tasks</h1>
+        </div>
+        <div  fxLayout="column" style="background-color: white;" >
+            <div fxFlex="100" class="container-form" fxLayout.xs="column" fxLayout="row">
+                <div fxFlex="50" fxFlex.md="40" fxFlex.sm="40"  fxLayoutAlign="start end" fxFlex.xs="100" class="title-principal">
+                    <h2 class="title-drawer">Tasks</h2>
+                </div>
+                <div fxFlex="50" fxFlex.md ="60" fxFlex.sm="60" fxLayoutAlign="end" fxFlex.xs="100"  >
+                    <div fxLayoutAlign="center center" fxFlex.xs="50">
+                        <mat-form-field appearance="outline" fxFlex.xs="100">
+                            <mat-label>Created: 1/Feb/2021</mat-label>
+                            <input matInput [matDatepicker]="picker" (keyup)="sens()" (dateChange)="filter($event)">
+                            <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
+                            <mat-datepicker #picker  ></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+
+                    <div fxLayoutAlign="start center" style=" margin-left: 16px;" fxFlex.xs="50">
+                        <button mat-button color="primary" (click)="addTask()">
+                            <mat-icon>add_circle_outline</mat-icon> Add Task
+                        </button>
+                    </div>
+                   
+
+                </div>
+            </div>
+            <div fxLayout="column">
+                <div class="table-data padding-bottom-top" fxLayout="row">
+                    <div fxFlex="15">
+
+                    </div>
+                    <div fxFlex="45" class="letter">
+                        <h4 class="sub-title">Title</h4>
+                    </div>
+                    <div fxFlex="40">
+                        <h4 class="sub-title">Created</h4>
+                    </div>
+                    <div fxFlex="50" fxFlex.xs="0" fxHide.xs class="letter">
+                        <h4 class="sub-title">Description</h4>
+                    </div>
+                </div>
+                <div *ngIf="!flat">
+                    <div class="padding-bottom-top pointer" fxLayout="row" (click)="selectTask(task)" (click)="drawer.toggle()" *ngFor="let task of tasks">
+                        <div fxFlex="15" fxLayoutAlign="center center" *ngIf="task['status']=='false'">
+                            <mat-icon >check_circle_outline</mat-icon>
+                        </div>
+                        <div fxFlex="15" fxLayoutAlign="center center" *ngIf="task['status']=='true'">
+                            <mat-icon style="color: #54E10E;">check_circle</mat-icon>
+                        </div>
+                        <div fxFlex="45"  fxLayoutAlign="start center" class="letter">
+                            <h4 >{{task['title'].substr(0,40)}}</h4>
+                        </div>
+                        <div fxFlex="40" fxLayoutAlign="start center">
+                            <h4 >{{task['day_time'] | date: 'mediumDate'}}</h4>
+                        </div>
+                        <div fxFlex="50" fxLayoutAlign="start center" class="letter" fxFlex.xs="0" fxHide.xs>
+                            <h4>{{task['description'].substr(0,40) }}</h4>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="flat">
+                    <div class="padding-bottom-top pointer" fxLayout="row" (click)="selectTask(task)"  (click)="drawer.toggle()" *ngFor="let task of tasksCommon">
+                        <div fxFlex="15" fxLayoutAlign="center center" *ngIf="task['status']=='false'">
+                            <mat-icon >check_circle_outline</mat-icon>
+                        </div>
+                        <div fxFlex="15" fxLayoutAlign="center center" *ngIf="task['status']=='true'">
+                            <mat-icon style="color: #54E10E;">check_circle</mat-icon>
+                        </div>
+                        <div fxFlex="45"  fxLayoutAlign="start center">
+                            <h4 >{{task['title']}}</h4>
+                        </div>
+                        <div fxFlex="40" fxLayoutAlign="start center">
+                            <h4 >{{task['day_time'] | date: 'mediumDate'}}</h4>
+                        </div>
+                        <div fxFlex="50" fxLayoutAlign="start center" fxFlex.xs="0" fxHide.xs>
+                            <h4>{{task['description'] }}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div fxFlex="5" fxFlex.xs="1">
+
+    </div>
+</mat-drawer-content>
+
+<mat-drawer mode="over" #drawer position="end" class="drawer-content" fxLayout="column" >
+ <div fxLayout="column" style="padding: 24px 16px;">
+
+    <div fxLayoutAlign="end end" >
+        <mat-icon class="pointer" (click)="drawer.toggle()" >close
+        </mat-icon>  
+    </div>
+    <div fxFlex="100" style="padding-top: 16px;">
+        <h1  class="title-drawer">
+            {{taskSelect['title']}}
+        </h1>
+    </div>
+    <mat-form-field appearance="outline" fxFlex="100" class="space">
+        <mat-label>Status:Pending</mat-label>
+        <mat-select matNativeControl value ="{{taskSelect['status']}}" (selectionChange)="changeSelect($event.value)">
+          <mat-option value="false">Pending</mat-option>
+          <mat-option value="true">Done</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <div fxLayout="column"> 
+        <div class="space-bottom">
+            <h4 class="title-drawer">
+                Created
+            </h4>
+        </div>
+       
+        <h4>
+            {{taskSelect['day_time'] | date: 'mediumDate'}}
+        </h4>
+    </div>
+    <div fxLayout="column" class="space"> 
+        <div class="space-bottom ">
+            <h4 class="title-drawer">
+                Description
+            </h4>
+        </div>
+        <div class="container-description">
+            <h4>
+            {{taskSelect['description']}}
+
+        </h4>
+        </div>
+        
+    </div>
+    
+ </div>
+ <div class="container-drawer"> 
+    <button mat-raised-button class="buttons-drawer"
+    (click)="drawer.close() "
+    (click)="editTask(taskSelect['id'])"
+    ><mat-icon
+     color="primary">create</mat-icon> Edit</button>
+    <button mat-raised-button class="buttons-drawer"(click)="deleteTask(taskSelect['id'])" (click)="drawer.close()" >
+        <mat-icon color="primary" >
+            delete
+        </mat-icon>
+        Delete</button>
+
+</div>
+      
+</mat-drawer>
+
+</mat-drawer-container>

@@ -1,0 +1,110 @@
+.iv{
+    border: 1px solid black;
+}
+.container{
+    background-color: rgba(222,221,221);
+    height: 100vh;
+}
+
+.sub-container{
+    //background-color: white;
+    height: 70px;
+}
+.container-form{
+    padding: 24px 16px;
+}
+hr{
+    background-color: gray;
+    margin-block-start: 0em;
+    margin-block-end: 0em
+}
+
+.table-data{
+    border-bottom: 1px solid gray;
+    border-top: 1px solid gray;
+}
+.padding-bottom-top{
+    padding:16px 0px;
+
+}
+
+.drawer-content{
+    width: 300px;
+}
+.title-drawer{
+    font-weight: bold;
+}
+.space{
+    padding: 20px 0px;
+}
+.space-bottom{
+    padding-bottom: 10px;
+}
+
+.container-drawer{
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 120px;
+}
+.buttons-drawer{
+    background-color:rgba(222,221,221);
+    margin-right: 10px;
+    width: 100px;
+}
+
+
+.letter{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.container-description{
+    max-height: 100px;
+    min-height: 100px;
+}
+
+/* lg - Large Devices (Landscape Tablets & Mediam Desktop  )  */
+@media (min-width: 1280px) and (max-width: 1919px){
+    .container-drawer{
+        padding-top:140px;
+    }
+}
+
+/* md - Media Devices (Landscape Tablets & Mediam Desktop  )  */
+@media (min-width: 960px) and (max-width: 1279px){
+    .container-drawer{
+        padding-top: 50px;
+    }
+}
+
+/* sm - Small Devices (Portrait Tablets and Small desktop ) */
+@media (min-width: 600px) and (max-width: 959px){
+    .container-drawer{
+        padding-top: 60px;
+    }
+}
+
+/* xs - Extra Small Devices (Landscape phones & Portrait Tablets) */ 
+@media (max-width: 599px){
+    .container-drawer{
+        padding-top: 50px;
+    }
+    .container-form{
+        padding: 16px 8px;
+
+    }    
+    .title-principal{
+        padding-bottom: 16px;
+    }
+
+}
+
+// /* xxs - Extra Small Devices (Landscape phones & Portrait Tablets) */ 
+@media (max-width: 375px){
+
+}
+
+@media (max-width: 320px){
+
+
+}

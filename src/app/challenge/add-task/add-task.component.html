@@ -1,0 +1,52 @@
+<div fxLayout="column" fxFlex="100">
+    <div style="border-bottom: 1px solid gray; " class="bottom-space">
+        <h2 style="font-weight: bold;">New tasks</h2>
+    </div>
+    <div style="padding-top: 24px;">
+        <form fxLayout="column" [formGroup]="addTaskForm">
+            <div class="bottom-space-rest">
+                <h2 >
+                    Title
+                </h2>
+            </div>
+           
+            <mat-form-field appearance="outline" class="space-field">
+              <input matInput  #topTitle maxlength="50" placeholder = "Challenge weekend" formControlName="title">
+              <mat-hint align="end">{{topTitle.value.length}} / 50</mat-hint>
+
+            </mat-form-field>
+            <div >
+                <div fxFlex="50" fxLayoutAlign="end center" style="padding-right: 10px;">
+                    <h2>Variable day</h2>
+                </div>
+                <div fxFlex="50">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Chosen day</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="day_time">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+        
+            <div class="bottom-space-rest">
+                <h2 >
+                    Description
+                </h2>
+            </div>
+            
+            <mat-form-field appearance="outline" class="space-field">
+              <textarea [mat-autosize] #topDescription maxlength="250" matInput placeholder="The filter of the todos should be developed in the Front-End." formControlName="description" style="min-height: 70px;"></textarea>
+              <mat-hint align="end">{{topDescription.value.length}} / 250</mat-hint>
+
+            </mat-form-field>
+          </form> 
+
+    </div>
+    <div class="container-buttons">
+        <button mat-raised-button class="buttons" mat-dialog-close >Cancel</button>
+        <button mat-raised-button class="buttons" color="primary" (click)="sendForm()">Save</button>
+    </div>
+</div>
+
+
